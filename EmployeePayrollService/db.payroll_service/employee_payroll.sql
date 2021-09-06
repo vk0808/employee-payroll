@@ -81,10 +81,8 @@ SELECT SUM(Salary) AS 'TotalSalary', Gender FROM employee_payroll GROUP BY Gende
 SELECT AVG(Salary) AS 'AverageSalary', Gender FROM employee_payroll GROUP BY Gender;
 SELECT MIN(Salary) AS 'MinimumSalary', Gender FROM employee_payroll GROUP BY Gender;
 SELECT MAX(Salary) AS 'MaximumSalary', Gender FROM employee_payroll GROUP BY Gender;
-
-<<<<<<< HEAD
 SELECT COUNT(Gender) AS 'Male', COUNT(Gender) AS 'Female' FROM employee_payroll WHERE Gender='M';
-=======
+
 ---------------------------------------------------------------
 
 -- uc-8
@@ -97,4 +95,3 @@ ADD
 PhoneNumber VARCHAR(50),
 Address VARCHAR(50) CONSTRAINT df_payroll_service_Address DEFAULT 'TBD',
 Department VARCHAR(50);
->>>>>>> UC-8-ExtendTable
