@@ -81,3 +81,16 @@ SELECT SUM(Salary) AS 'TotalSalary', Gender FROM employee_payroll GROUP BY Gende
 SELECT AVG(Salary) AS 'AverageSalary', Gender FROM employee_payroll GROUP BY Gender;
 SELECT MIN(Salary) AS 'MinimumSalary', Gender FROM employee_payroll GROUP BY Gender;
 SELECT MAX(Salary) AS 'MaximumSalary', Gender FROM employee_payroll GROUP BY Gender;
+
+---------------------------------------------------------------
+
+-- uc-8
+-- To go to the database created
+USE payroll_service
+
+-- To extend the current table with default address
+ALTER TABLE employee_payroll
+ADD 
+PhoneNumber VARCHAR(50),
+Address VARCHAR(50) CONSTRAINT df_payroll_service_Address DEFAULT 'TBD',
+Department VARCHAR(50);
