@@ -125,3 +125,47 @@ UPDATE employee_payroll SET Department = 'Sales', BasicPay = 3000000.00  WHERE E
 -- To insert new record
 INSERT INTO employee_payroll VALUES
 ('Terisha',3000000.00,'2020-08-14','F','1234567890','India','Marketing',1000000.00,2000000.00,500000.00,1500000.00);
+
+---------------------------------------------------------------
+
+-- uc-11
+-- To go to the database created
+USE payroll_service
+
+-- To create a table - department
+CREATE TABLE department(
+	DepartmentID INT IDENTITY(1, 1) PRIMARY KEY,
+	DepartmentName VARCHAR(255)  NOT NULL
+);
+
+-- To create a table - company
+CREATE TABLE company(
+	CompanytID INT IDENTITY(1, 1) PRIMARY KEY,
+	CompanyName VARCHAR(255)  NOT NULL
+);
+
+-- To create a table - employee
+CREATE TABLE employee(
+	EmployeeID INT IDENTITY(1, 1) PRIMARY KEY,
+	EmployeeName VARCHAR(255)  NOT NULL,
+	PhoneNumber VARCHAR(50),
+	Address VARCHAR(50) CONSTRAINT df_payroll_service_Address DEFAULT 'TBD', 
+	Gender VARCHAR(1),
+	CompanyID INT NOT NULL FOREIGN KEY REFERENCES company(CompanytID),
+	StartDate DATE  NOT NULL
+);
+
+-- To create a table - payroll
+CREATE TABLE payroll(
+	EmployeeID INT FOREIGN KEY REFERENCES employee(EmployeeID),
+	Deduction DECIMAL,
+	TaxablePay DECIMAL,
+	IncomeTax DECIMAL,
+	NetPay DECIMAL
+);
+
+-- To create a table - employee_department
+CREATE TABLE employee_department(
+	EmployeeID INT NOT NULL FOREIGN KEY REFERENCES employee(EmployeeID),
+	DepartmentID INT NOT NULL FOREIGN KEY REFERENCES department(DepartmentID),
+);
