@@ -46,3 +46,13 @@ USE payroll_service
 
 -- To select all records from table
 SELECT * FROM employee_payroll;
+
+---------------------------------------------------------------
+
+-- uc-5
+-- To go to the database created
+USE payroll_service
+
+-- To select particular records from table
+SELECT Salary FROM employee_payroll WHERE EmployeeName = 'Bill';
+SELECT Salary FROM employee_payroll WHERE StartDate BETWEEN CAST('2021-01-01' AS DATE) AND GETDATE();
