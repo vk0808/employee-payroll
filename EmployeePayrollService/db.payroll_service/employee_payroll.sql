@@ -112,3 +112,16 @@ Deduction DECIMAL,
 TaxablePay DECIMAL,
 IncomeTax DECIMAL,
 NetPay DECIMAL;
+
+---------------------------------------------------------------
+
+-- uc-10
+-- To go to the database created
+USE payroll_service
+
+-- To update existing record with department
+UPDATE employee_payroll SET Department = 'Sales', BasicPay = 3000000.00  WHERE EmployeeName = 'Terisha';
+
+-- To insert new record
+INSERT INTO employee_payroll VALUES
+('Terisha',3000000.00,'2020-08-14','F','1234567890','India','Marketing',1000000.00,2000000.00,500000.00,1500000.00);
