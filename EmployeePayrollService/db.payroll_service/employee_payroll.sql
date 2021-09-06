@@ -56,3 +56,14 @@ USE payroll_service
 -- To select particular records from table
 SELECT Salary FROM employee_payroll WHERE EmployeeName = 'Bill';
 SELECT Salary FROM employee_payroll WHERE StartDate BETWEEN CAST('2021-01-01' AS DATE) AND GETDATE();
+
+---------------------------------------------------------------
+
+-- uc-6
+-- To go to the database created
+USE payroll_service
+
+-- To alter table by adding gender and then update records
+ALTER TABLE employee_payroll ADD Gender VARCHAR(1);
+UPDATE employee_payroll SET Gender = 'F' WHERE Name = 'Terisha';
+UPDATE employee_payroll SET Gender = 'M' WHERE Name = 'Bill' OR Name = 'Charlie';
