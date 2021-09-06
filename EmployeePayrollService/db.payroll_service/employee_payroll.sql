@@ -81,3 +81,5 @@ SELECT SUM(Salary) AS 'TotalSalary', Gender FROM employee_payroll GROUP BY Gende
 SELECT AVG(Salary) AS 'AverageSalary', Gender FROM employee_payroll GROUP BY Gender;
 SELECT MIN(Salary) AS 'MinimumSalary', Gender FROM employee_payroll GROUP BY Gender;
 SELECT MAX(Salary) AS 'MaximumSalary', Gender FROM employee_payroll GROUP BY Gender;
+
+SELECT COUNT(Gender) AS 'Male', COUNT(Gender) AS 'Female' FROM employee_payroll WHERE Gender='M';
