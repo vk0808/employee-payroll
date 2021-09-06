@@ -95,3 +95,20 @@ ADD
 PhoneNumber VARCHAR(50),
 Address VARCHAR(50) CONSTRAINT df_payroll_service_Address DEFAULT 'TBD',
 Department VARCHAR(50);
+
+---------------------------------------------------------------
+
+-- uc-9
+-- To go to the database created
+USE payroll_service
+
+-- To rename salary column to basicPay
+EXEC sp_rename 'employee_payroll.Salary' , 'BasicPay';
+
+-- To extend the current table with default address
+ALTER TABLE employee_payroll
+ADD
+Deduction DECIMAL,
+TaxablePay DECIMAL,
+IncomeTax DECIMAL,
+NetPay DECIMAL;
