@@ -67,3 +67,17 @@ USE payroll_service
 ALTER TABLE employee_payroll ADD Gender VARCHAR(1);
 UPDATE employee_payroll SET Gender = 'F' WHERE Name = 'Terisha';
 UPDATE employee_payroll SET Gender = 'M' WHERE Name = 'Bill' OR Name = 'Charlie';
+
+---------------------------------------------------------------
+
+-- uc-7
+-- To go to the database created
+USE payroll_service
+
+-- To perform sum, average, min, max operations on the table records
+SELECT SUM(Salary) AS 'TotalSalary' FROM employee_payroll WHERE Gender='M' GROUP BY Gender;
+SELECT SUM(Salary) AS 'TotalSalary'FROM employee_payroll GROUP BY Gender;
+SELECT SUM(Salary) AS 'TotalSalary', Gender FROM employee_payroll GROUP BY Gender;
+SELECT AVG(Salary) AS 'AverageSalary', Gender FROM employee_payroll GROUP BY Gender;
+SELECT MIN(Salary) AS 'MinimumSalary', Gender FROM employee_payroll GROUP BY Gender;
+SELECT MAX(Salary) AS 'MaximumSalary', Gender FROM employee_payroll GROUP BY Gender;
