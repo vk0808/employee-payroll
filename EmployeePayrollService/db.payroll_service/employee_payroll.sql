@@ -169,3 +169,26 @@ CREATE TABLE employee_department(
 	EmployeeID INT NOT NULL FOREIGN KEY REFERENCES employee(EmployeeID),
 	DepartmentID INT NOT NULL FOREIGN KEY REFERENCES department(DepartmentID),
 );
+
+---------------------------------------------------------------
+
+-- uc-12
+-- To go to the database created
+USE payroll_service
+
+
+-- To alter table
+ALTER TABLE payroll
+ADD BasicPay DECIMAL NOT NULL;
+
+-- uc-4 
+SELECT  p.BasicPay, e.EmployeeName FROM payroll p INNER JOIN Employee e on p.EmployeeId=e.EmployeeId WHERE e.EmployeeName='Bill';
+-- uc-5
+SELECT SUM(p.BasicPay) AS "sum",e.Gender FROM payroll p INNER JOIN Employee e on p.EmployeeId=e.EmployeeId GROUP BY Gender;
+SELECT MAX(p.BasicPay) AS "maxSalary",e.Gender FROM payroll p INNER JOIN Employee e on p.EmployeeId=e.EmployeeId GROUP BY Gender;
+SELECT MIN(p.BasicPay) AS "minSalary",e.Gender FROM payroll p INNER JOIN Employee e on p.EmployeeId=e.EmployeeId GROUP BY Gender;
+SELECT AVG(p.BasicPay) AS "averageSalry",e.Gender FROM payroll p INNER JOIN Employee e on p.EmployeeId=e.EmployeeId GROUP BY Gender;
+SELECT COUNT(p.BasicPay) AS "count",e.Gender FROM payroll p INNER JOIN Employee e on p.EmployeeId=e.EmployeeId GROUP BY Gender;
+-- uc-7
+SELECT e.EmployeeName, e.StartDate, e.Gender, e.PhoneNumber, e.Address, c.CompanyName, s.BasicPay FROM employee as e  INNER JOIN company AS c ON CompanyID=c.CompanytID
+INNER JOIN payroll AS s ON e.EmployeeID=s.EmployeeID INNER JOIN department AS d on d.DepartmentID=e.EmployeeID INNER JOIN employee_department as ed on ed.DepartmentID=d.DepartmentID;
